@@ -26,7 +26,6 @@ function onStopBtn() {
     clearInterval(currentColorId);
     stopBtn.disabled = true;
     startBtn.disabled = false;
-
 }
 
 
