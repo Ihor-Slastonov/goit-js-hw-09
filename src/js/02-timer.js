@@ -1,12 +1,9 @@
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
-
-
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
 const inputeDate = document.querySelector('#datetime-picker');
-const startBtn = document.querySelector("[data-start]");
+const startBtn = document.querySelector('[data-start]');
 
 startBtn.disabled = true;
 let diferense = null;
@@ -21,21 +18,21 @@ const options = {
         console.log(selectedDates[0]);
 
         const currentTime = options.defaultDate.getTime();
-        const selectedTime = selectedDates[0].getTime()
+        const selectedTime = selectedDates[0].getTime();
 
         if (selectedTime < currentTime) {
             Notify.init({
-                position: 'center-top'
-            })
-                Notify.failure("Please choose a date in the future");
-            } else {
-            diferense = selectedTime - currentTime
+                position: 'center-top',
+            });
+            Notify.failure('Please choose a date in the future');
+        } else {
+            diferense = selectedTime - currentTime;
             startBtn.disabled = false;
         }
     },
 };
 
-flatpickr(inputeDate, options)
+flatpickr(inputeDate, options);
 
 function convertMs(ms) {
     // Number of milliseconds per unit of time
@@ -57,16 +54,14 @@ function convertMs(ms) {
 }
 
 const timer = {
-    days: document.querySelector("[data-days]"),
-    hours: document.querySelector("[data-hours]"),
-    minutes: document.querySelector("[data-minutes]"),
-    seconds: document.querySelector("[data-seconds]"),
-}
-
-
+    days: document.querySelector('[data-days]'),
+    hours: document.querySelector('[data-hours]'),
+    minutes: document.querySelector('[data-minutes]'),
+    seconds: document.querySelector('[data-seconds]'),
+};
 
 function addLeadingZero(value) {
-    return value.toString().padStart(2, "0")
+    return value.toString().padStart(2, '0');
 }
 
 startBtn.addEventListener('click', onBtnClick);
@@ -80,10 +75,6 @@ function onBtnClick() {
 
     const goTimer = setInterval(() => {
         goTimerId = goTimer;
-        timer.days.textContent = addLeadingZero(date.days);
-        timer.hours.textContent = addLeadingZero(date.hours);
-        timer.minutes.textContent = addLeadingZero(date.minutes);
-        timer.seconds.textContent = addLeadingZero(date.seconds);
         date.seconds -= 1;
 
         if (date.seconds < 0 && date.minutes != 0) {
@@ -98,13 +89,17 @@ function onBtnClick() {
             date.hours = 23;
             date.days -= 1;
         }
-        if (date.days === 0 && date.hours === 0 && date.minutes === 0 && date.seconds === 0) {
+        if (
+            date.days === 0 &&
+            date.hours === 0 &&
+            date.minutes === 0 &&
+            date.seconds === 0
+        ) {
             clearInterval(goTimerId);
-            timer.seconds.textContent = addLeadingZero(0);
         }
-    }, 1000)
+        timer.days.textContent = addLeadingZero(date.days);
+        timer.hours.textContent = addLeadingZero(date.hours);
+        timer.minutes.textContent = addLeadingZero(date.minutes);
+        timer.seconds.textContent = addLeadingZero(date.seconds);
+    }, 1000);
 }
-
-
-
-
