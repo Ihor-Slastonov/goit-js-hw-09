@@ -15,7 +15,6 @@ function getRandomHexColor() {
 function onStartBtn() {
     startBtn.disabled = true;
     stopBtn.disabled = false;
-    document.body.style.backgroundColor = getRandomHexColor();
     const randomColor = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
         randomColorIntervalId = randomColor;
