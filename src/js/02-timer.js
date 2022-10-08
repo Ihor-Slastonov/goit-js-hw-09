@@ -21,6 +21,7 @@ const options = {
         const selectedTime = selectedDates[0].getTime();
 
         if (selectedTime < currentTime) {
+            startBtn.disabled = true;
             Notify.init({
                 position: 'center-top',
             });
@@ -77,7 +78,7 @@ function onBtnClick() {
         goTimerId = goTimer;
         date.seconds -= 1;
 
-        if (date.seconds < 0 && date.minutes != 0) {
+        if (date.seconds === 0 && date.minutes != 0) {
             date.seconds = 59;
             date.minutes -= 1;
         }
