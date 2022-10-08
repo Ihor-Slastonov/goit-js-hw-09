@@ -23,7 +23,7 @@ function onStartBtn() {
 }
 
 function onStopBtn() {
-    clearInterval(currentColorId);
+    clearInterval(randomColorIntervalId);
     stopBtn.disabled = true;
     startBtn.disabled = false;
 }
