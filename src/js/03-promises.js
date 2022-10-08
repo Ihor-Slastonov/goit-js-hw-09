@@ -39,6 +39,5 @@ function createPromise(position, delay) {
         // Reject
       }
     }, delay)
-
   })
 }

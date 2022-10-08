@@ -81,3 +81,21 @@ img {
   text-transform: uppercase;
   cursor: pointer;
 }
+/* -------------------- Task 3  --------------------- */
+
+.form{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.form > label{
+  display: flex;
+  flex-wrap: wrap;
+  width: 180px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+.form > button {
+  height: 40px;
+}
