@@ -23,7 +23,7 @@ function onFormSubmit(e) {
         Notify.failure(`Rejected promise ${position} in ${delay}ms`)
       });
   }
-
+  e.currentTarget.reset();
 }
 
 
